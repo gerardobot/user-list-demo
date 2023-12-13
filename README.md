@@ -17,6 +17,9 @@ La conexión a los servicios se realiza mediante `Retrofit`, que se sirve de `Mo
 
 Este módulo define los interfaces de las fuentes de datos, para adaptar APIS ajenas a la lógica de dominio, e implementa los repositorios que gestionan el tratamiento de datos.
 
+La implementación de `UserRepository` muestra un ejemplo del tipo de lógica que se puede implementar en esta capa, como la gestión de la caché o la paginación de resultados.
+En el método `getUsers` se comprueba que los usuarios proporcionados por el data source no estén duplicados, usando el e-mail como identificador único. Posteriormente, se almacenan los casos únicos en caché y se devuelven al caso de uso.
+
 ## Domain
 
 En este módulo están definidos los modelos de las entidades, los interfaces de los repositorios y los casos de uso que determinan los requerimientos funcionales de la app.
