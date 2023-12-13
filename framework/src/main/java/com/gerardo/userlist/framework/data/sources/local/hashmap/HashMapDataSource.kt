@@ -15,4 +15,9 @@ class HashMapDataSource : LocalDataSource {
         @Suppress("UNCHECKED_CAST")
         return Result.success(map[key] as T)
     }
+
+    override suspend fun <T : Any> getAll(keyClass: Class<out LocalDataKey<T>>): Result<List<T>> = runCatching {
+        @Suppress("UNCHECKED_CAST")
+        return Result.success(map.filterKeys { it.javaClass == keyClass }.values.toList() as List<T>)
+    }
 }
