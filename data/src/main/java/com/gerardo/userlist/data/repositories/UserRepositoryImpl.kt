@@ -18,10 +18,22 @@ class UserRepositoryImpl(
     override suspend fun getUsers(): DomainResult<List<UserInfo>> =
         randomUserRemoteDataSource.getUsers()
 
-    override suspend fun getUsersPage(pageNumber: Int): DomainResult<Page<BasicUserInfo>> =
-        randomUserRemoteDataSource.getUsersPage(pageNumber).onSuccess { page ->
-            page.items.forEach { saveUserInfo(it) }
+    override suspend fun getUsersPage(pageNumber: Int): DomainResult<Page<BasicUserInfo>> {
+        val localUsers = localDataSource.getAll(LocalDataKey.UserInfoKey::class.java).getOrNull() ?: emptyList()
+        val localEmails = localUsers.map { it.email }.toSet()
+
+        return randomUserRemoteDataSource.getUsersPage(pageNumber).onSuccess { page ->
+            val uniqueUsers = page.items
+                .filter { it.email !in localEmails }
+                .distinctBy { it.email }
+            uniqueUsers.forEach { saveUserInfo(it) }
+            Page(
+                previousPage = page.previousPage,
+                nextPage = page.nextPage,
+                items = uniqueUsers
+            )
         }.map { page -> page.map { it.toBasicUserInfo() } }
+    }
 
     override suspend fun saveUserInfo(userInfo: UserInfo): DomainResult<UserInfo> =
         localDataSource.saveData(LocalDataKey.UserInfoKey(userInfo.email), userInfo)
