@@ -1,0 +1,81 @@
+[versions]
+accompanist-systemuicontroller = "0.19.0"
+coil = "2.4.0"
+compose = "1.5.4"
+compose-activity = "1.8.1"
+compose-material3 = "1.1.2"
+compose-navigation = "2.7.5"
+chucker = "3.5.2"
+gradle = "8.2.0"
+junit = "4.13.2"
+kotlin = "1.9.21"
+kotlinter = "3.13.0"
+kotlinx-coroutines = "1.7.3"
+koin-compose = "3.4.2"
+ksp = "1.9.21-1.0.15"
+mockk = "1.13.3"
+moshi = "1.14.0"
+okhttp = "4.11.0"
+retrofit = "2.9.0"
+userlist = "1.0"
+
+[libraries]
+## Implementation ##
+# Accompanist
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
+
+# Coil
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil" }
+
+# Compose
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+
+# Gradle
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+
+# Koin
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose"}
+
+# Kotlinx
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+# Moshi
+moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
+moshi-ksp = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+## Debug ##
+# Chucker
+debug-chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
+
+# Compose
+debug-compose-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+debug-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+
+## Release ##
+#Chucker
+release-chucker = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
+
+## Test ##
+test-junit = { module = "junit:junit", version.ref = "junit" }
+test-kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+test-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin"}
+
+[plugins]
+android-app = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+userlist-config = { id = "userlist-config", version.ref = "userlist" }

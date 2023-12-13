@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">User List</string>
+
+    <string name="error_unknown_title">Unknown Error</string>
+    <string name="error_network_title">Network Error</string>
+    <string name="error_invalid_user_id_title">Invalid User Id</string>
+
+    <string name="top_bar_title_user_list">"CONTACTOS"</string>
+    <string name="top_bar_icon_description_menu">Menu</string>
+    <string name="top_bar_icon_description_back">Back</string>
+
+    <string name="user_list_search_field">Filtra por nombre o email</string>
+
+    <string name="user_profile_pic_description">Profile picture of %1s</string>
+    <string name="user_profile_gender_male_es">Hombre</string>
+    <string name="user_profile_gender_female_es">Mujer</string>
+    <string name="user_profile_gender_other_es">Otro</string>
+    <string name="user_profile_label_name">Nombre y apellidos</string>
+    <string name="user_profile_label_email">Email</string>
+    <string name="user_profile_label_gender">Género</string>
+    <string name="user_profile_label_registration_date">Fecha de registro</string>
+    <string name="user_profile_label_phone">Teléfono</string>
+</resources>
